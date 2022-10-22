@@ -15,4 +15,16 @@ describe('fetchBreedDescription', () => {
       done();
     });
   });
+
+  it('returns an error if an unknown breed is entered', (done) => {
+    fetchBreedDescription('aweafafrw12gf', (err, desc) => {
+      // we expect an error
+      assert.equal(err, "The specified breed does not exist");
+
+      // desc should be null
+      assert.equal(null, desc);
+
+      done();
+    });
+  });
 });
